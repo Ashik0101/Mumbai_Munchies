@@ -54,7 +54,8 @@ def display_menu():
     print("2. Remove a snack from the inventory")
     print("3. Update the availability of a snack")
     print("4. Record a sale")
-    print("5. Exit")
+    print("5. View Inventory")
+    print("6. Exit")
 
 
 def get_input(message):
@@ -86,6 +87,13 @@ def record_sale():
     snack_id = get_input("Enter snack ID: ")
     sales_records.record_sale(snack_id, snack_inventory)
 
+def view_inventory():
+    if len(snack_inventory.inventory) ==0:
+        print("No item is present in the inventory.")
+    else:
+        for item in snack_inventory.inventory:
+          print(item)
+    
 
 while True:
     display_menu()
@@ -100,6 +108,8 @@ while True:
     elif choice == '4':
         record_sale()
     elif choice == '5':
+        view_inventory()
+    elif choice =='6':
         break
     else:
         print("Invalid choice. Please try again.")
